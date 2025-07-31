@@ -6,37 +6,41 @@ namespace GestionItem
 {
     public partial class Productos : Form
     {
-        private int _itemIdAEditar; 
-        private Item _itemActual;  
+        private int _itemIdAEditar;
+        private Item _itemActual;
 
-       
         public Productos()
         {
             InitializeComponent();
             ConfigurarFormularioBase();
             ConfigurarFormularioParaNuevo();
         }
-
-        public Productos(int itemId) : this() 
+        public Productos(int itemId) : this()
         {
             _itemIdAEditar = itemId;
+            ConfigurarFormularioParaEdicion();
         }
-
-   
         private void ConfigurarFormularioBase()
         {
-            this.FormBorderStyle = FormBorderStyle.FixedSingle; 
-            this.MaximizeBox = false; 
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
         }
-
         private void ConfigurarFormularioParaNuevo()
         {
             this.Text = "Agregar Nuevo Producto";
-            AgregarBtn.Text = "Guardar Nuevo"; 
-            _itemIdAEditar = 0; 
+            AgregarBtn.Text = "Guardar Nuevo";
+            _itemIdAEditar = 0;
             lblMensaje.Text = "Introduce los datos del nuevo producto.";
             lblMensaje.ForeColor = System.Drawing.Color.Blue;
-            LimpiarCampos(); 
+            LimpiarCampos();
+        }
+        private void ConfigurarFormularioParaEdicion()
+        {
+            this.Text = "Editar Producto";
+            AgregarBtn.Text = "Guardar Cambios";
+            lblMensaje.Text = "Modificando ítem existente.";
+            lblMensaje.ForeColor = System.Drawing.Color.Blue;
+            CargarItemParaEdicion();
         }
         private void LimpiarCampos()
         {
@@ -44,14 +48,48 @@ namespace GestionItem
             DescripcionTxt.Clear();
             CantidadTxt.Clear();
             PrecioTxt.Clear();
-            NombreTxt.Focus(); 
+            NombreTxt.Focus();
+        }
+        private void CargarItemParaEdicion()
+        {
+            if (_itemIdAEditar <= 0)
+            {
+                MostrarMensajeError("No se ha proporcionado un ID de ítem válido para editar.");
+                AgregarBtn.Enabled = false;
+                return;
+            }
+
+            using (var dbContext = new ApplicationDbContext())
+            {
+                try
+                {
+                    _itemActual = dbContext.Items.Find(_itemIdAEditar);
+                    if (_itemActual != null)
+                    {
+                        NombreTxt.Text = _itemActual.Nombre;
+                        DescripcionTxt.Text = _itemActual.Descripcion;
+                        CantidadTxt.Text = _itemActual.Cantidad.ToString();
+                        PrecioTxt.Text = _itemActual.Precio.ToString(System.Globalization.CultureInfo.InvariantCulture);
+                    }
+                    else
+                    {
+                        MostrarMensajeError($"Error: Ítem con ID {_itemIdAEditar} no encontrado en la base de datos.");
+                        AgregarBtn.Enabled = false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MostrarMensajeError($"Error al cargar ítem para edición: {ex.Message}");
+                    AgregarBtn.Enabled = false;
+                }
+            }
         }
         private bool ValidarEntradas(out string nombre, out string descripcion, out int cantidad, out decimal precio)
         {
             nombre = NombreTxt.Text.Trim();
-            descripcion = DescripcionTxt.Text.Trim(); 
+            descripcion = DescripcionTxt.Text.Trim();
             cantidad = 0;
-            precio = 0m; 
+            precio = 0m;
 
 
             if (string.IsNullOrWhiteSpace(nombre))
@@ -77,7 +115,7 @@ namespace GestionItem
                 return false;
             }
 
-            return true; 
+            return true;
         }
         private void MostrarMensajeError(string mensaje)
         {
@@ -97,29 +135,27 @@ namespace GestionItem
 
             if (!ValidarEntradas(out string nombre, out string descripcion, out int cantidad, out decimal precio))
             {
-                return; 
+                return;
             }
-
-
             using (var dbContext = new ApplicationDbContext())
             {
                 try
-                 {
-                    if (_itemIdAEditar == 0) 
+                {
+                    if (_itemIdAEditar == 0)
                     {
-                        _itemActual = new Item(); 
-                        dbContext.Items.Add(_itemActual); 
+                        _itemActual = new Item();
+                        dbContext.Items.Add(_itemActual);
                     }
-                    else 
+                    else
                     {
-                     
+
                         _itemActual = dbContext.Items.Find(_itemIdAEditar);
                         if (_itemActual == null)
                         {
                             MostrarMensajeError("El ítem que intentas editar no se encontró en la base de datos.");
                             return;
                         }
-         
+
                     }
 
 
@@ -128,11 +164,11 @@ namespace GestionItem
                     _itemActual.Cantidad = cantidad;
                     _itemActual.Precio = precio;
 
-                    dbContext.SaveChanges(); 
+                    dbContext.SaveChanges();
 
                     MostrarMensajeExito("¡Ítem guardado exitosamente!");
-                    this.DialogResult = DialogResult.OK; 
-                    this.Close(); 
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
                 }
                 catch (Exception ex)
                 {
@@ -148,8 +184,12 @@ namespace GestionItem
         }
         private void CancelarBtn_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel; 
-            this.Close(); 
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+        private void Productos_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

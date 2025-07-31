@@ -138,6 +138,29 @@ namespace GestionItem
             }
         }
         private void groupBox1_Enter(object sender, EventArgs e) { }
+
+        private void EditarBtn_Click(object sender, EventArgs e)
+        {
+            if (dataGridView.SelectedRows.Count == 0)
+            {
+                lblEstado.Text = "Por favor, seleccione un ítem para editar.";
+                lblEstado.ForeColor = System.Drawing.Color.Red;
+                return;
+            }
+            int itemId = (int)dataGridView.SelectedRows[0].Cells["Id"].Value;
+            Productos formProductos = new Productos(itemId); 
+            if (formProductos.ShowDialog() == DialogResult.OK)
+            {
+                CargarItemsEnDataGridView(); 
+                lblEstado.Text = "¡Ítem editado exitosamente!";
+                lblEstado.ForeColor = System.Drawing.Color.Blue;
+            }
+            else
+            {
+                lblEstado.Text = "Operación de edición de ítem cancelada.";
+                lblEstado.ForeColor = System.Drawing.Color.Orange;
+            }
+        }
     }
 }
     
