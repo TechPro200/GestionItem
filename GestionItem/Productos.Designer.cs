@@ -168,6 +168,7 @@
             Controls.Add(groupBox1);
             Name = "Productos";
             Text = "Producto";
+            Load += Productos_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
