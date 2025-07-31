@@ -90,14 +90,14 @@ namespace GestionItem
                 {
                     if (dbContext.Usuarios.Any(u => u.NombreUsuario == nombreUsuario))
                     {
-                        lblMensaje.Text = "Error: El nombre de usuario ya está en uso.";
+                        lblMensaje.Text = "Error: El nombre de usuario ya esta en uso.";
                         lblMensaje.ForeColor = System.Drawing.Color.Red;
                         return;
                     }
 
                     if (dbContext.Usuarios.Any(u => u.Correo == correo))
                     {
-                        lblMensaje.Text = "Error: Este correo electrónico ya está registrado.";
+                        lblMensaje.Text = "Error: Este correo electrónico ya esta registrado.";
                         lblMensaje.ForeColor = System.Drawing.Color.Red;
                         return;
                     }

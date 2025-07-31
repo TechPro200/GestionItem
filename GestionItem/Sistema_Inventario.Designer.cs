@@ -109,6 +109,7 @@
             EliminarBtn.TabIndex = 2;
             EliminarBtn.Text = "Eliminar";
             EliminarBtn.UseVisualStyleBackColor = true;
+            EliminarBtn.Click += EliminarBtn_Click;
             // 
             // groupBox2
             // 
