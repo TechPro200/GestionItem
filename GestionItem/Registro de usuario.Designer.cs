@@ -202,6 +202,7 @@
             Controls.Add(panel1);
             Name = "Registro_de_usuario";
             Text = "Registro_de_usuario";
+            Load += Registro_de_usuario_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);

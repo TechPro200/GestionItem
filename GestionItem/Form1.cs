@@ -1,6 +1,5 @@
 using GestionItem.Data;
 using System.Linq; 
-using GestionItem.Models; 
 using BCrypt.Net;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,6 +10,7 @@ namespace GestionItem
         public Form1()
         {
             InitializeComponent();
+            ContraseñaTxt.UseSystemPasswordChar = true;
             try
             {
                 using (var dbContext = new ApplicationDbContext())
@@ -20,7 +20,10 @@ namespace GestionItem
             }
             catch (Exception ex)
             {
-
+                lblMensaje.Text = $"Error crítico de base de datos: {ex.Message}";
+                lblMensaje.ForeColor = System.Drawing.Color.Red;
+                IniciarseccionBtn.Enabled = false;
+                RegistrarseBtn.Enabled = false;
             }
         }
 
@@ -44,9 +47,8 @@ namespace GestionItem
 
         private void IniciarseccionBtn_Click(object sender, EventArgs e)
         {
-            string nombreUsuario = NombreText.Text.Trim();
-            string contrasena = ContraseñaText.Text;
-
+            string nombreUsuario = NombreTxt.Text.Trim();
+            string contrasena = ContraseñaTxt.Text;
 
             if (string.IsNullOrWhiteSpace(nombreUsuario) || string.IsNullOrWhiteSpace(contrasena))
             {
@@ -55,14 +57,11 @@ namespace GestionItem
                 return;
             }
 
-
-            using (var dbContext = new ApplicationDbContext()) 
+            using (var dbContext = new ApplicationDbContext())
             {
                 try
                 {
-
                     var usuario = dbContext.Usuarios.FirstOrDefault(u => u.NombreUsuario == nombreUsuario);
-
 
                     if (usuario == null)
                     {
@@ -73,20 +72,30 @@ namespace GestionItem
 
                     if (BCrypt.Net.BCrypt.Verify(contrasena, usuario.ContrasenaHash))
                     {
-                        
+                        lblMensaje.Text = $"¡Bienvenido, {usuario.NombreUsuario}! Iniciando sistema...";
+                        lblMensaje.ForeColor = System.Drawing.Color.Blue;
 
+    
+                        this.Hide();
+                        Sistema_Inventario sistemaInventarioForm = new Sistema_Inventario(usuario);
+                        sistemaInventarioForm.ShowDialog(); 
 
+                       
+                        this.Show(); 
+                        NombreTxt.Clear();
+                        ContraseñaTxt.Clear();
+                        lblMensaje.Text = "";
                     }
                     else
                     {
-    
                         lblMensaje.Text = "Error: Nombre de usuario o contraseña incorrectos.";
                         lblMensaje.ForeColor = System.Drawing.Color.Red;
                     }
                 }
                 catch (Exception ex)
                 {
-       
+                    lblMensaje.Text = $"Error al iniciar sesión: {ex.Message}";
+                    lblMensaje.ForeColor = System.Drawing.Color.Red;
                 }
             }
         }
