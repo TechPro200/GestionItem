@@ -117,38 +117,110 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="RegistrarseBtn.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblMensaje.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="RegistrarseBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>65, 409</value>
+  <data name="lblMensaje.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 274</value>
   </data>
-  <data name="RegistrarseBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 35</value>
+  <data name="lblMensaje.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 20</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="RegistrarseBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
+  <data name="lblMensaje.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
   </data>
-  <data name="RegistrarseBtn.Text" xml:space="preserve">
-    <value>Registrate</value>
+  <data name="&gt;&gt;lblMensaje.Name" xml:space="preserve">
+    <value>lblMensaje</value>
   </data>
-  <data name="&gt;&gt;RegistrarseBtn.Name" xml:space="preserve">
-    <value>RegistrarseBtn</value>
+  <data name="&gt;&gt;lblMensaje.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;RegistrarseBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RegistrarseBtn.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lblMensaje.Parent" xml:space="preserve">
     <value>panel2</value>
   </data>
-  <data name="&gt;&gt;RegistrarseBtn.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lblMensaje.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="label4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="IniciarseccionBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>94, 206</value>
+  </data>
+  <data name="IniciarseccionBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 33</value>
+  </data>
+  <data name="IniciarseccionBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="IniciarseccionBtn.Text" xml:space="preserve">
+    <value>Iniciar seccion</value>
+  </data>
+  <data name="&gt;&gt;IniciarseccionBtn.Name" xml:space="preserve">
+    <value>IniciarseccionBtn</value>
+  </data>
+  <data name="&gt;&gt;IniciarseccionBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;IniciarseccionBtn.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;IniciarseccionBtn.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 13.8pt, style=Bold</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>65, 18</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>191, 31</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Inicio de seccion</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>339, 67</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -160,7 +232,7 @@
     <value>NoControl</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>65, 383</value>
+    <value>66, 395</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>191, 23</value>
@@ -181,16 +253,46 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
+  </data>
+  <data name="RegistrarseBtn.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="RegistrarseBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="RegistrarseBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 421</value>
+  </data>
+  <data name="RegistrarseBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>339, 33</value>
+  </data>
+  <data name="RegistrarseBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="RegistrarseBtn.Text" xml:space="preserve">
+    <value>Registrate</value>
+  </data>
+  <data name="&gt;&gt;RegistrarseBtn.Name" xml:space="preserve">
+    <value>RegistrarseBtn</value>
+  </data>
+  <data name="&gt;&gt;RegistrarseBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RegistrarseBtn.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;RegistrarseBtn.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="ContraseñaText.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="ContraseñaText.Location" type="System.Drawing.Point, System.Drawing">
-    <value>140, 165</value>
+    <value>140, 147</value>
   </data>
   <data name="ContraseñaText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 27</value>
+    <value>163, 27</value>
   </data>
   <data name="ContraseñaText.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -205,7 +307,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;ContraseñaText.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>5</value>
   </data>
   <data name="NombreText.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -214,7 +316,7 @@
     <value>140, 94</value>
   </data>
   <data name="NombreText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 27</value>
+    <value>163, 27</value>
   </data>
   <data name="NombreText.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -229,7 +331,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;NombreText.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>6</value>
   </data>
   <data name="label3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -244,7 +346,7 @@
     <value>NoControl</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 167</value>
+    <value>21, 149</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>113, 25</value>
@@ -265,7 +367,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>7</value>
   </data>
   <data name="label2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -298,49 +400,16 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 13.8pt, style=Bold</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>65, 14</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 31</value>
-  </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Inicio de seccion</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
   </data>
   <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>491, 0</value>
+    <value>476, 0</value>
   </data>
   <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>326, 456</value>
+    <value>341, 456</value>
   </data>
   <data name="panel2.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -367,7 +436,7 @@
     <value>True</value>
   </data>
   <data name="$this.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Center</value>
+    <value>Stretch</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>817, 456</value>
