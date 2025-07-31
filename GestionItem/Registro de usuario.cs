@@ -61,7 +61,7 @@ namespace GestionItem
 
 
 
-            if (contrasena.Length < 6) 
+            if (contrasena.Length < 6)
             {
                 lblMensaje.Text = "Error: La contraseña debe tener al menos 6 caracteres.";
                 lblMensaje.ForeColor = System.Drawing.Color.Red;
@@ -136,6 +136,11 @@ namespace GestionItem
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Registro_de_usuario_Load(object sender, EventArgs e)
         {
 
         }
