@@ -36,8 +36,8 @@
             label1 = new Label();
             label4 = new Label();
             RegistrarseBtn = new Button();
-            ContraseñaText = new TextBox();
-            NombreText = new TextBox();
+            ContraseñaTxt = new TextBox();
+            NombreTxt = new TextBox();
             label3 = new Label();
             label2 = new Label();
             panel2.SuspendLayout();
@@ -52,8 +52,8 @@
             panel2.Controls.Add(panel1);
             panel2.Controls.Add(label4);
             panel2.Controls.Add(RegistrarseBtn);
-            panel2.Controls.Add(ContraseñaText);
-            panel2.Controls.Add(NombreText);
+            panel2.Controls.Add(ContraseñaTxt);
+            panel2.Controls.Add(NombreTxt);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(label2);
             resources.ApplyResources(panel2, "panel2");
@@ -98,15 +98,15 @@
             RegistrarseBtn.UseVisualStyleBackColor = true;
             RegistrarseBtn.Click += RegistrarseBtn_Click;
             // 
-            // ContraseñaText
+            // ContraseñaTxt
             // 
-            resources.ApplyResources(ContraseñaText, "ContraseñaText");
-            ContraseñaText.Name = "ContraseñaText";
+            resources.ApplyResources(ContraseñaTxt, "ContraseñaTxt");
+            ContraseñaTxt.Name = "ContraseñaTxt";
             // 
-            // NombreText
+            // NombreTxt
             // 
-            resources.ApplyResources(NombreText, "NombreText");
-            NombreText.Name = "NombreText";
+            resources.ApplyResources(NombreTxt, "NombreTxt");
+            NombreTxt.Name = "NombreTxt";
             // 
             // label3
             // 
@@ -144,8 +144,8 @@
         private Label label2;
         private Button RegistrarseBtn;
         private Label label4;
-        private TextBox ContraseñaText;
-        private TextBox NombreText;
+        private TextBox ContraseñaTxt;
+        private TextBox NombreTxt;
         private Panel panel1;
         private Button IniciarseccionBtn;
         private Label lblMensaje;

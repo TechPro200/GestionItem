@@ -63,9 +63,29 @@ namespace GestionItem.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _5169758513_8e448a6e28_b {
+            get {
+                object obj = ResourceManager.GetObject("5169758513_8e448a6e28_b", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap guia_almacen_7 {
             get {
                 object obj = ResourceManager.GetObject("guia-almacen-7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap recycled_cardboard_cardboard_texture_background_2045306 {
+            get {
+                object obj = ResourceManager.GetObject("recycled-cardboard-cardboard-texture-background-2045306", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
