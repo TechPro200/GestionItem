@@ -3,11 +3,11 @@ using System.Linq;
 using System.Windows.Forms;
 using Microsoft.EntityFrameworkCore; 
 using GestionItem.Data;
-using GestionItem.Models; 
+using GestionItem.Models;
 
-namespace GestionItem 
+namespace GestionItem
 {
-    public partial class Sistema_Inventario : Form 
+    public partial class Sistema_Inventario : Form
     {
         private Usuario _usuarioLogueado;
 
@@ -16,15 +16,15 @@ namespace GestionItem
             InitializeComponent();
             CargarItemsEnDataGridView();
 
-            dataGridView.AllowUserToAddRows = false; 
-            dataGridView.ReadOnly = true;          
-            dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect; 
-            dataGridView.MultiSelect = false;      
+            dataGridView.AllowUserToAddRows = false;
+            dataGridView.ReadOnly = true;
+            dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView.MultiSelect = false;
 
         }
 
 
-        public Sistema_Inventario(Usuario usuario) : this() 
+        public Sistema_Inventario(Usuario usuario) : this()
         {
             _usuarioLogueado = usuario;
 
@@ -38,7 +38,7 @@ namespace GestionItem
                 try
                 {
                     var items = dbContext.Items.ToList();
-                    dataGridView.DataSource = items; 
+                    dataGridView.DataSource = items;
                     if (dataGridView.Columns.Contains("Id")) dataGridView.Columns["Id"].HeaderText = "ID";
                     if (dataGridView.Columns.Contains("Nombre")) dataGridView.Columns["Nombre"].HeaderText = "Nombre del Producto";
                     if (dataGridView.Columns.Contains("Descripcion")) dataGridView.Columns["Descripcion"].HeaderText = "Descripción";
@@ -62,25 +62,82 @@ namespace GestionItem
                 }
             }
         }
-        private void ProductoBtn_Click(object sender, EventArgs e) 
+        private void ProductoBtn_Click(object sender, EventArgs e)
         {
-            Productos formProductos = new Productos(); 
+            Productos formProductos = new Productos();
             if (formProductos.ShowDialog() == DialogResult.OK)
             {
 
-                CargarItemsEnDataGridView(); 
+                CargarItemsEnDataGridView();
                 lblEstado.Text = "¡Nuevo ítem agregado exitosamente!";
                 lblEstado.ForeColor = System.Drawing.Color.Blue;
             }
             else
             {
-                lblEstado.Text = "Operación de agregar ítem cancelada.";
+                lblEstado.Text = "Operación de agregar ítem fue cancelada.";
                 lblEstado.ForeColor = System.Drawing.Color.Orange;
             }
         }
 
         private void Sistema_Inventario_Load(object sender, EventArgs e) { }
         private void groupBox2_Enter(object sender, EventArgs e) { }
+
+
+        private void EliminarBtn_Click(object sender, EventArgs e)
+        {
+            if (dataGridView.SelectedRows.Count == 0)
+            {
+                lblEstado.Text = "Por favor, seleccione un ítem para poder eliminar.";
+                lblEstado.ForeColor = System.Drawing.Color.Red;
+                return;
+            }
+
+            DialogResult dialogResult = MessageBox.Show(
+                "¿Está seguro de que desea eliminar el ítem seleccionado? Esta acción no se puede deshacer.",
+                "Confirmar Eliminación",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                int itemId = (int)dataGridView.SelectedRows[0].Cells["Id"].Value;
+
+                using (var dbContext = new ApplicationDbContext())
+                {
+                    try
+                    {
+                        var itemAEliminar = dbContext.Items.Find(itemId);
+                        if (itemAEliminar != null)
+                        {
+                            dbContext.Items.Remove(itemAEliminar);
+                            dbContext.SaveChanges();
+
+                            lblEstado.Text = "¡Item eliminado exitosamente!";
+                            lblEstado.ForeColor = System.Drawing.Color.Green;
+                            CargarItemsEnDataGridView();
+                        }
+                        else
+                        {
+                            lblEstado.Text = "Error: El item a eliminar no se encontro en la base de datos.";
+                            lblEstado.ForeColor = System.Drawing.Color.Red;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        lblEstado.Text = $"Error al eliminar el ítem: {ex.Message}";
+                        lblEstado.ForeColor = System.Drawing.Color.Red;
+                        MessageBox.Show($"Error al eliminar el ítem: {ex.Message}", "Error de Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                lblEstado.Text = "Operación de eliminación cancelada.";
+                lblEstado.ForeColor = System.Drawing.Color.Orange;
+            }
+        }
         private void groupBox1_Enter(object sender, EventArgs e) { }
     }
 }
+    
