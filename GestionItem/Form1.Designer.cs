@@ -30,38 +30,73 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             panel2 = new Panel();
-            RegistrarseBtn = new Button();
+            lblMensaje = new Label();
+            IniciarseccionBtn = new Button();
+            panel1 = new Panel();
+            label1 = new Label();
             label4 = new Label();
+            RegistrarseBtn = new Button();
             ContraseñaText = new TextBox();
             NombreText = new TextBox();
             label3 = new Label();
             label2 = new Label();
-            label1 = new Label();
             panel2.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
             // 
-            panel2.Controls.Add(RegistrarseBtn);
+            panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(lblMensaje);
+            panel2.Controls.Add(IniciarseccionBtn);
+            panel2.Controls.Add(panel1);
             panel2.Controls.Add(label4);
+            panel2.Controls.Add(RegistrarseBtn);
             panel2.Controls.Add(ContraseñaText);
             panel2.Controls.Add(NombreText);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(label2);
-            panel2.Controls.Add(label1);
             resources.ApplyResources(panel2, "panel2");
             panel2.Name = "panel2";
+            // 
+            // lblMensaje
+            // 
+            resources.ApplyResources(lblMensaje, "lblMensaje");
+            lblMensaje.ForeColor = Color.Red;
+            lblMensaje.Name = "lblMensaje";
+            // 
+            // IniciarseccionBtn
+            // 
+            resources.ApplyResources(IniciarseccionBtn, "IniciarseccionBtn");
+            IniciarseccionBtn.Name = "IniciarseccionBtn";
+            IniciarseccionBtn.UseVisualStyleBackColor = true;
+            IniciarseccionBtn.Click += IniciarseccionBtn_Click;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Gold;
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(label1);
+            resources.ApplyResources(panel1, "panel1");
+            panel1.Name = "panel1";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(label1, "label1");
+            label1.Name = "label1";
+            // 
+            // label4
+            // 
+            resources.ApplyResources(label4, "label4");
+            label4.CausesValidation = false;
+            label4.Name = "label4";
             // 
             // RegistrarseBtn
             // 
             resources.ApplyResources(RegistrarseBtn, "RegistrarseBtn");
             RegistrarseBtn.Name = "RegistrarseBtn";
             RegistrarseBtn.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            resources.ApplyResources(label4, "label4");
-            label4.Name = "label4";
+            RegistrarseBtn.Click += RegistrarseBtn_Click;
             // 
             // ContraseñaText
             // 
@@ -83,11 +118,6 @@
             resources.ApplyResources(label2, "label2");
             label2.Name = "label2";
             // 
-            // label1
-            // 
-            resources.ApplyResources(label1, "label1");
-            label1.Name = "label1";
-            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
@@ -102,6 +132,8 @@
             Load += Form1_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -114,5 +146,8 @@
         private Label label4;
         private TextBox ContraseñaText;
         private TextBox NombreText;
+        private Panel panel1;
+        private Button IniciarseccionBtn;
+        private Label lblMensaje;
     }
 }
