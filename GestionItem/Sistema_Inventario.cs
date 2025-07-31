@@ -20,6 +20,7 @@ namespace GestionItem
             dataGridView.ReadOnly = true;
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView.MultiSelect = false;
+            this.dataGridView.SelectionChanged += new System.EventHandler(this.dataGridView_SelectionChanged);
 
         }
 
@@ -53,6 +54,16 @@ namespace GestionItem
 
                     lblEstado.Text = $"Items cargados: {items.Count}";
                     lblEstado.ForeColor = System.Drawing.Color.Green;
+
+                    if (dataGridView.Rows.Count > 0)
+                    {
+                        dataGridView.Rows[0].Selected = true;
+                        MostrarItemsEnDetalles(); 
+                    }
+                    else
+                    {
+                        LimpiarDetalles(); 
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -61,6 +72,57 @@ namespace GestionItem
                     MessageBox.Show($"Error al cargar ítems: {ex.Message}", "Error de Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+        private void MostrarItemsEnDetalles()
+        {
+            if (dataGridView.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    DataGridViewRow selectedRow = dataGridView.SelectedRows[0];
+                    Item selectedItem = selectedRow.DataBoundItem as Item;
+
+                    if (selectedItem != null)
+                    {
+                        IdLbl.Text = selectedItem.Id.ToString();
+                        NombreLbl.Text = selectedItem.Nombre;
+                        DecripcionLbl.Text = selectedItem.Descripcion;
+                        CantidadLbl.Text = selectedItem.Cantidad.ToString();
+                        PrecioLbl.Text = selectedItem.Precio.ToString("C", System.Globalization.CultureInfo.CurrentCulture); 
+                    }
+                    else
+                    {
+                        IdLbl.Text = selectedRow.Cells["Id"].Value?.ToString() ?? "N/A";
+                        NombreLbl.Text = selectedRow.Cells["Nombre"].Value?.ToString() ?? "N/A";
+                        DecripcionLbl.Text = selectedRow.Cells["Descripcion"].Value?.ToString() ?? "N/A";
+                        CantidadLbl.Text = selectedRow.Cells["Cantidad"].Value?.ToString() ?? "N/A";
+                        PrecioLbl.Text = selectedRow.Cells["Precio"].Value?.ToString() ?? "N/A";
+                        lblEstado.Text = "Advertencia: No se pudo obtener el objeto Item completo. Se cargó desde celdas.";
+                        lblEstado.ForeColor = System.Drawing.Color.Orange;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    lblEstado.Text = $"Error al mostrar detalles del ítem: {ex.Message}";
+                    lblEstado.ForeColor = System.Drawing.Color.Red;
+                }
+            }
+            else
+            {
+                LimpiarDetalles(); 
+            }
+        }
+        private void LimpiarDetalles()
+        {
+            IdLbl.Text = "N/A";
+            NombreLbl.Text = "N/A";
+            CantidadLbl.Text = "N/A";
+            DecripcionLbl.Text = "N/A";
+            PrecioLbl.Text = "N/A";
+        }
+        private void dataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            MostrarItemsEnDetalles(); 
         }
         private void ProductoBtn_Click(object sender, EventArgs e)
         {
@@ -78,11 +140,8 @@ namespace GestionItem
                 lblEstado.ForeColor = System.Drawing.Color.Orange;
             }
         }
-
         private void Sistema_Inventario_Load(object sender, EventArgs e) { }
         private void groupBox2_Enter(object sender, EventArgs e) { }
-
-
         private void EliminarBtn_Click(object sender, EventArgs e)
         {
             if (dataGridView.SelectedRows.Count == 0)
@@ -138,7 +197,6 @@ namespace GestionItem
             }
         }
         private void groupBox1_Enter(object sender, EventArgs e) { }
-
         private void EditarBtn_Click(object sender, EventArgs e)
         {
             if (dataGridView.SelectedRows.Count == 0)
