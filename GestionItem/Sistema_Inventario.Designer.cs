@@ -100,6 +100,7 @@
             EditarBtn.TabIndex = 1;
             EditarBtn.Text = "Editar";
             EditarBtn.UseVisualStyleBackColor = true;
+            EditarBtn.Click += EditarBtn_Click;
             // 
             // EliminarBtn
             // 
