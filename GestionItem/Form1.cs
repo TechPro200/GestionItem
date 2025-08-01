@@ -10,6 +10,8 @@ namespace GestionItem
         public Form1()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             ContraseñaTxt.UseSystemPasswordChar = true;
             try
             {
@@ -52,7 +54,7 @@ namespace GestionItem
 
             if (string.IsNullOrWhiteSpace(nombreUsuario) || string.IsNullOrWhiteSpace(contrasena))
             {
-                lblMensaje.Text = "Error: Por favor, ingrese su nombre de usuario y contraseña.";
+                lblMensaje.Text = "Error: Ingrese su nombre de usuario y contraseña.";
                 lblMensaje.ForeColor = System.Drawing.Color.Red;
                 return;
             }
@@ -75,13 +77,13 @@ namespace GestionItem
                         lblMensaje.Text = $"¡Bienvenido, {usuario.NombreUsuario}! Iniciando sistema...";
                         lblMensaje.ForeColor = System.Drawing.Color.Blue;
 
-    
+
                         this.Hide();
                         Sistema_Inventario sistemaInventarioForm = new Sistema_Inventario(usuario);
-                        sistemaInventarioForm.ShowDialog(); 
+                        sistemaInventarioForm.ShowDialog();
 
-                       
-                        this.Show(); 
+
+                        this.Show();
                         NombreTxt.Clear();
                         ContraseñaTxt.Clear();
                         lblMensaje.Text = "";
@@ -98,6 +100,11 @@ namespace GestionItem
                     lblMensaje.ForeColor = System.Drawing.Color.Red;
                 }
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

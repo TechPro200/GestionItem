@@ -20,6 +20,8 @@ namespace GestionItem
         public Registro_de_usuario()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
             try
             {
