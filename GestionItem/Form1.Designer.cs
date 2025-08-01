@@ -32,24 +32,22 @@
             panel2 = new Panel();
             lblMensaje = new Label();
             IniciarseccionBtn = new Button();
-            panel1 = new Panel();
-            label1 = new Label();
             label4 = new Label();
             RegistrarseBtn = new Button();
             ContraseñaTxt = new TextBox();
             NombreTxt = new TextBox();
             label3 = new Label();
             label2 = new Label();
+            label1 = new Label();
             panel2.SuspendLayout();
-            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
             // 
             panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(label1);
             panel2.Controls.Add(lblMensaje);
             panel2.Controls.Add(IniciarseccionBtn);
-            panel2.Controls.Add(panel1);
             panel2.Controls.Add(label4);
             panel2.Controls.Add(RegistrarseBtn);
             panel2.Controls.Add(ContraseñaTxt);
@@ -71,19 +69,6 @@
             IniciarseccionBtn.Name = "IniciarseccionBtn";
             IniciarseccionBtn.UseVisualStyleBackColor = true;
             IniciarseccionBtn.Click += IniciarseccionBtn_Click;
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.Gold;
-            panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(label1);
-            resources.ApplyResources(panel1, "panel1");
-            panel1.Name = "panel1";
-            // 
-            // label1
-            // 
-            resources.ApplyResources(label1, "label1");
-            label1.Name = "label1";
             // 
             // label4
             // 
@@ -118,6 +103,11 @@
             resources.ApplyResources(label2, "label2");
             label2.Name = "label2";
             // 
+            // label1
+            // 
+            resources.ApplyResources(label1, "label1");
+            label1.Name = "label1";
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
@@ -132,22 +122,19 @@
             Load += Form1_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
         private Panel panel2;
-        private Label label1;
         private Label label3;
         private Label label2;
         private Button RegistrarseBtn;
         private Label label4;
         private TextBox ContraseñaTxt;
         private TextBox NombreTxt;
-        private Panel panel1;
         private Button IniciarseccionBtn;
         private Label lblMensaje;
+        private Label label1;
     }
 }
