@@ -15,6 +15,8 @@ namespace GestionItem
         {
             InitializeComponent();
             CargarItemsEnDataGridView();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
 
             dataGridView.AllowUserToAddRows = false;
             dataGridView.ReadOnly = true;
