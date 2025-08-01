@@ -14,6 +14,8 @@ namespace GestionItem
             InitializeComponent();
             ConfigurarFormularioBase();
             ConfigurarFormularioParaNuevo();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
         }
         public Productos(int itemId) : this()
         {
@@ -188,6 +190,11 @@ namespace GestionItem
             this.Close();
         }
         private void Productos_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }

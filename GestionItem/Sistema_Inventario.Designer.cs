@@ -135,7 +135,7 @@
             // PrecioLbl
             // 
             PrecioLbl.AutoSize = true;
-            PrecioLbl.Location = new Point(290, 77);
+            PrecioLbl.Location = new Point(284, 77);
             PrecioLbl.Name = "PrecioLbl";
             PrecioLbl.Size = new Size(0, 20);
             PrecioLbl.TabIndex = 9;
@@ -143,7 +143,7 @@
             // DecripcionLbl
             // 
             DecripcionLbl.AutoSize = true;
-            DecripcionLbl.Location = new Point(290, 47);
+            DecripcionLbl.Location = new Point(284, 45);
             DecripcionLbl.Name = "DecripcionLbl";
             DecripcionLbl.Size = new Size(0, 20);
             DecripcionLbl.TabIndex = 8;
@@ -151,7 +151,7 @@
             // CantidadLbl
             // 
             CantidadLbl.AutoSize = true;
-            CantidadLbl.Location = new Point(92, 101);
+            CantidadLbl.Location = new Point(78, 101);
             CantidadLbl.Name = "CantidadLbl";
             CantidadLbl.Size = new Size(0, 20);
             CantidadLbl.TabIndex = 7;
@@ -159,7 +159,7 @@
             // IdLbl
             // 
             IdLbl.AutoSize = true;
-            IdLbl.Location = new Point(92, 74);
+            IdLbl.Location = new Point(78, 74);
             IdLbl.Name = "IdLbl";
             IdLbl.Size = new Size(0, 20);
             IdLbl.TabIndex = 6;
@@ -167,7 +167,7 @@
             // NombreLbl
             // 
             NombreLbl.AutoSize = true;
-            NombreLbl.Location = new Point(92, 44);
+            NombreLbl.Location = new Point(78, 44);
             NombreLbl.Name = "NombreLbl";
             NombreLbl.Size = new Size(0, 20);
             NombreLbl.TabIndex = 5;
